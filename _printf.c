@@ -31,11 +31,11 @@ int _printf(const char *format, ...)
 			if (my_str[++k] == 'c')
 			{
 				my_str[j] = va_arg(arg_list, int);
-				my_str[k] = ' ';
+				my_str[k] = 3;
 			}
 			if (my_str[k] == '%')
 			{
-				my_str[++j] = ' ';
+				my_str[++j] = 3;
 			}
 			if (my_str[k] == 'd' || my_str[k] == 'i')
 			{
