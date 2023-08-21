@@ -1,6 +1,11 @@
 #include "main.h"
 #include <stdlib.h>
-
+/**
+ * _printf - functions the same as printf function
+ * @format: The first fixed argument
+ * @...: variable arguments
+ * Return: number of character printed
+ */
 int _printf(const char *format, ...)
 {
 	int size, j, k;
@@ -10,14 +15,10 @@ int _printf(const char *format, ...)
 
 	k = 0;
 	va_start(arg_list, format);
-	/*Get the size of the whole string*/
 	for (size = 0; format[size]; size++)
 	{
 	}
-
-	/*Allocate memory to my_str variable  of size size*/
 	my_str = malloc(sizeof(format) * size);
-	/*Copy contents of format to my_str*/
 	for (j = 0; j < size; j++)
 	{
 		my_str[j] = format[j];
@@ -39,13 +40,12 @@ int _printf(const char *format, ...)
 			if (my_str[k] == 'd' || my_str[k] == 'i')
 			{
 				tmp = va_arg(arg_list, int);
-				my_str[j] = (tmp/10) + '0';
+				my_str[j] = (tmp / 10) + '0';
 				my_str[k] = (tmp % 10) + '0';
-					/*va_arg(arg_list, int);*/
 			}
 		}
 
 	}
 	printf("%s", my_str);
-	return size;
+	return (size);
 }
