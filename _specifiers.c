@@ -1,4 +1,6 @@
 #include "main.h"
+#include <limits.h>
+#include <stdlib.h>
 /**
  * _putdec - Print an integer to standard output
  * @x: The integer to be printed
@@ -49,9 +51,9 @@ int _string(va_list args)
 
 	while (*str)
 	{
-	_putchar(*str);
-	str++;
-	cnt++;
+		_putchar(*str);
+		str++;
+		cnt++;
 	}
 	return (cnt);
 
@@ -70,6 +72,8 @@ int _char(va_list args)
 {
 	char ch = va_arg(args, int);
 
+	if (ch == '%')
+		return (1);
 	_putchar(ch);
 
 	return (1);

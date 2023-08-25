@@ -13,16 +13,16 @@
 int (*decision(char d))(va_list)
 {
 	int i;
-	int (*func[])(va_list) = {_string, _char, _decimal, _integer};
-	const char specifiers[] = "scdi";
+	int (*func[])(va_list) = {_string, _char, _decimal, _integer, _uinteger};
+	const char specifiers[] = "scdiu";
 
 	for (i = 0; specifiers[i]; i++)
-{
-	if (d == specifiers[i])
 	{
-		return (func[i]);
+		if (d == specifiers[i])
+		{
+			return (func[i]);
+		}
 	}
-}
 
 	return (NULL);
 }

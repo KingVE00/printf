@@ -20,28 +20,34 @@ int _printf(const char *format, ...)
 
 	while (format[i] != '\0')
 	{
+		cnt++;
 		if (format[i] == '%')
 		{
+			if (format[i + 1] == '%')
+			{
+				cnt--;
+			}
 			if (format[i + 1] != '\0')
 			{
 				int (*function)(va_list) = decision(format[i + 1]);
 
 				if (function != NULL)
 				{
-					cnt += function(args);
-						i++;
+					/*cnt +=*/
+					function(args);
+					i++;
 				}
 				else
 				{
 					_putchar(format[i]);
-					cnt++;
+					/*cnt++;*/
 				}
 			}
 		}
 		else
 		{
 			_putchar(format[i]);		}
-			i++;
+		i++;
 	}
 
 	va_end(args);
