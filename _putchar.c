@@ -1,4 +1,4 @@
-#include "main.h"
+#include "lists.h"
 /**
  * _putchar - Writes a character to standard output
  * @c: The character to be written
